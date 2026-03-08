@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -14,7 +15,7 @@ function Navbar() {
   ];
 
   return (
-    <nav className="bg-white shadow-sm">
+    <nav className="bg-white dark:bg-black shadow-sm transition-colors duration-500 ease-in-out">
       <div className="container">
         <div className="flex justify-between h-16">
           <div className="flex">
@@ -33,7 +34,7 @@ function Navbar() {
               <Link
                 key={item.name}
                 to={item.href}
-                className="text-secondary-600 hover:text-primary-600 px-3 py-2 text-sm font-medium"
+                className="text-secondary-600 dark:text-white hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors duration-500 ease-in-out"
               >
                 {item.name}
               </Link>

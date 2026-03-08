@@ -11,13 +11,16 @@ import Privacy from './pages/Privacy';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import NotFound from './pages/NotFound';
+import FloatingDarkModeButton from "./components/dark-light-mode/FloatingDarkModeButton";
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen bg-white dark:bg-black flex flex-col transition-colors duration-500 ease-in-out">
         <Navbar />
         <main className="flex-grow">
+          <FloatingDarkModeButton />
+
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/properties" element={<Properties />} />

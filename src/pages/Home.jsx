@@ -5,9 +5,14 @@ import { FiArrowRight, FiUser, FiClock } from 'react-icons/fi';
 import { FaWallet, FaStore, FaMoneyBillWave, FaExchangeAlt, FaChartLine, FaLock, FaUserCog, FaCoins } from 'react-icons/fa';
 import { SiEthereum } from 'react-icons/si';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
+import backgroundImageLight from "../assets/blockchainHouses-Light.png";
+import backgroundImageDark from "../assets/blockchainHouses-Dark.png";
+import { useDarkLightTheme } from '../components/dark-light-mode/DarkLightThemeContext';
+
 
 function Home() {
   const [openSections, setOpenSections] = useState({});
+  const { darkMode, _ } = useDarkLightTheme();
 
   const featuredProperties = [
     {
@@ -217,17 +222,27 @@ function Home() {
       {/* Hero Section */}
       <section className="relative h-[600px] flex items-center justify-center">
         <div className="absolute inset-0 overflow-hidden">
+                <img
+            src={backgroundImageLight}
+            alt="Blockchain Houses Light"
+            className={`absolute w-full h-full object-cover transition-opacity duration-1000 ${
+              darkMode ? 'opacity-0' : 'opacity-100'
+            }`}
+          />
           <img
-            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80"
-            alt="Hero background"
-            className="w-full h-full object-cover"
+            src={backgroundImageDark}
+            alt="Blockchain Houses Dark"
+            className={`absolute w-full h-full object-cover transition-opacity duration-1000 ${
+              darkMode ? 'opacity-100' : 'opacity-0'
+            }`}
           />
           <div className="absolute inset-0 bg-black bg-opacity-50" />
         </div>
         
         <div className="relative container text-center text-white space-y-8">
+
           <motion.h1 
-            className="text-5xl font-bold"
+            className="text-3xl font-bold md:text-4xl lg:text-6xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -235,10 +250,14 @@ function Home() {
             Invest and Trade in Real Estate with Cryptocurrency
           </motion.h1>
           <motion.p 
-            className="text-xl max-w-2xl mx-auto"
+            className="
+            text-lg md:text-xl lg:text-2xl 
+            max-w-full md:max-w-2xl lg:max-w-3xl mx-auto
+            "
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            style={{ animationDelay: "1.0s" }}
           >
             Own fractional shares of premium properties through NFTs. Start investing with as little as $10.
           </motion.p>
@@ -247,8 +266,8 @@ function Home() {
       {/* Investment Steps */}
       <section className="container">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Start Investing in Minutes</h2>
-          <p className="text-secondary-600">Your journey to crypto-powered real estate investment</p>
+          <h2 className="text-3xl text-black dark:text-white font-bold mb-4">Start Investing in Minutes</h2>
+          <p className="text-secondary-600 dark:text-white">Your journey to crypto-powered real estate investment</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -261,7 +280,7 @@ function Home() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
             >
-              <div className="bg-white p-6 rounded-lg shadow-md text-center">
+              <div className="bg-white dark:bg-gray-600 p-6 rounded-lg shadow-md text-center">
                 <div className="bg-primary-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <step.icon className="text-2xl text-primary-600" />
                 </div>
