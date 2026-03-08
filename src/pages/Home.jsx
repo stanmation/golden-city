@@ -236,7 +236,7 @@ function Home() {
               darkMode ? 'opacity-100' : 'opacity-0'
             }`}
           />
-          <div className="absolute inset-0 bg-white dark:bg-black bg-opacity-50" />
+          <div className="absolute inset-0 bg-white/60 dark:bg-black/50" />
         </div>
         
         <div className="relative container text-center text-gray-800 dark:text-white space-y-8">
